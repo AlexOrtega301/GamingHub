@@ -69,8 +69,7 @@ contacteme a `alex.ortega301@outlook.com`
 ## 📜 Licencia
 
 Este proyecto es un **proyecto independiente** y se distribuye con fines educativos y de entretenimiento.
+es posible redistriuirlo bajo las condiciones de The Unlicense License
 
 ---
 
-
-Si quieres, también puedo hacer una **versión más pro hacker/Gen-Z para GitHub (mucho más cool)** o incluso una con **badges, stats y ASCII art** que hace que el repo se vea *10x más profesional*.
