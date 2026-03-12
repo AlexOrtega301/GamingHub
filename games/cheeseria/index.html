@@ -1,0 +1,103 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="../../icon.webp">
+<title id="page-title">Papa's Cheeseria (Hosteado)</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+</head>
+
+<body>
+
+<div style="margin-bottom:15px;">
+    <label for="lang" id="lang-label">Idioma:</label>
+    <select id="lang">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="jp">日本語</option>
+    </select>
+</div>
+
+<h2 id="main-title">Papa's Cheeseria</h2>
+<h3 id="flash-info">Este juego usa Flash, si usted no tiene Flash instalado, se usara Ruffle.</h3>
+<h4 id="host-info">Este juego esta hosteado en nuestro sitio!</h4>
+
+<div id="flash-container"></div>
+
+<button onclick="goBack()" class="back-btn" id="back-btn">⬅ Volver</button>
+
+<script>
+var swfURL = "cheeseria_1.swf";
+
+window.addEventListener("DOMContentLoaded", function () {
+    var ruffle = window.RufflePlayer.newest();
+    var player = ruffle.createPlayer();
+    document.getElementById("flash-container").appendChild(player);
+    player.style.width = "800px";
+    player.style.height = "600px";
+    player.load(swfURL);
+});
+
+function goBack() {
+    window.location.href = "../../index.html";
+}
+
+const translations = {
+    es: {
+        langLabel: "Idioma:",
+        pageTitle: "Papa's Cheeseria (Hosteado)",
+        mainTitle: "Papa's Cheeseria",
+        flashInfo: "Este juego usa Flash, si usted no tiene Flash instalado, se usara Ruffle.",
+        hostInfo: "Este juego esta hosteado en nuestro sitio!",
+        back: "⬅ Volver"
+    },
+    en: {
+        langLabel: "Language:",
+        pageTitle: "Papa's Cheeseria (Hosted)",
+        mainTitle: "Papa's Cheeseria",
+        flashInfo: "This game uses Flash. If you don't have Flash installed, Ruffle will be used.",
+        hostInfo: "This game is hosted on our site!",
+        back: "⬅ Back"
+    },
+    jp: {
+        langLabel: "言語:",
+        pageTitle: "Papa's Cheeseria（ホスト版）",
+        mainTitle: "Papa's Cheeseria",
+        flashInfo: "このゲームはFlashを使用しています。Flashがインストールされていない場合はRuffleが使用されます。",
+        hostInfo: "このゲームは当サイトでホストされています！",
+        back: "⬅ 戻る"
+    }
+};
+
+document.getElementById("lang").addEventListener("change", function() {
+    const lang = this.value;
+    const t = translations[lang];
+
+    document.documentElement.lang = lang;
+
+    document.getElementById("lang-label").textContent = t.langLabel;
+    document.getElementById("page-title").textContent = t.pageTitle;
+    document.getElementById("main-title").textContent = t.mainTitle;
+    document.getElementById("flash-info").textContent = t.flashInfo;
+    document.getElementById("host-info").textContent = t.hostInfo;
+    document.getElementById("back-btn").textContent = t.back;
+    localStorage.setItem("language", lang);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const selector = document.getElementById("lang");
+
+    const savedLang = localStorage.getItem("language") || "es";
+
+    selector.value = savedLang;
+    applyLanguage(savedLang);
+
+    selector.addEventListener("change", function() {
+        applyLanguage(this.value);
+    });
+});
+</script>
+
+</body>
+</html>

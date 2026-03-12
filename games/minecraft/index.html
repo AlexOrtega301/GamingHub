@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../../icon.webp">
+    <link rel="stylesheet" href="style.css">
+    <title id="page-title">Minecraft (Hosteado)</title>
+</head>
+<body>
+
+<div style="margin-bottom:15px;">
+    <label for="lang" id="lang-label">Idioma:</label>
+    <select id="lang">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="jp">日本語</option>
+    </select>
+</div>
+
+<h2 id="main-title">Minecraft</h2>
+<h4 id="host-info">Este juego esta hosteado en nuestro sitio!</h4>
+
+<iframe 
+    src="Minecraft.html" 
+    width="1000" 
+    height="700" 
+    style="border:none;">
+</iframe>
+
+<button onclick="goBack()" class="back-btn" id="back-btn">⬅ Volver</button>
+
+<script>
+function goBack() {
+    window.location.href = "../../index.html";
+}
+
+const translations = {
+    es: {
+        langLabel: "Idioma:",
+        pageTitle: "Minecraft (Hosteado)",
+        mainTitle: "Minecraft",
+        hostInfo: "Este juego esta hosteado en nuestro sitio!",
+        back: "⬅ Volver"
+    },
+    en: {
+        langLabel: "Language:",
+        pageTitle: "Minecraft (Hosted)",
+        mainTitle: "Minecraft",
+        hostInfo: "This game is hosted on our site!",
+        back: "⬅ Back"
+    },
+    jp: {
+        langLabel: "言語:",
+        pageTitle: "Minecraft（ホスト版）",
+        mainTitle: "Minecraft",
+        hostInfo: "このゲームは当サイトでホストされています！",
+        back: "⬅ 戻る"
+    }
+};
+
+document.getElementById("lang").addEventListener("change", function() {
+    const lang = this.value;
+    const t = translations[lang];
+
+    document.documentElement.lang = lang;
+    document.getElementById("lang-label").textContent = t.langLabel;
+    document.getElementById("page-title").textContent = t.pageTitle;
+    document.getElementById("main-title").textContent = t.mainTitle;
+    document.getElementById("host-info").textContent = t.hostInfo;
+    document.getElementById("back-btn").textContent = t.back;
+    localStorage.setItem("language", lang);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const selector = document.getElementById("lang");
+
+    const savedLang = localStorage.getItem("language") || "es";
+
+    selector.value = savedLang;
+    applyLanguage(savedLang);
+
+    selector.addEventListener("change", function() {
+        applyLanguage(this.value);
+    });
+});
+</script>
+
+</body>
+</html>

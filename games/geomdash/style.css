@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at center, #1a0033, #000000 80%);
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    text-align: center;
+    color: #00ffff;
+    overflow-x: hidden;
+
+    /* Orden vertical */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título estilo neón */
+h2 {
+    margin-top: 60px;
+    font-size: 52px;
+    color: #00ffff;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 40px #0088ff;
+}
+
+/* Caja estilo bloque GD */
+.container {
+    display: inline-block;
+    margin-top: 60px;
+    padding: 40px 60px;
+    background: #111111;
+    border: 3px solid #ff00ff;
+    border-radius: 0;
+    box-shadow:
+        0 0 15px #ff00ff,
+        0 0 30px #ff00ff inset;
+}
+
+/* Botón principal */
+button {
+    margin-top: 25px;
+    padding: 15px 35px;
+    font-size: 18px;
+    font-family: inherit;
+    color: #000;
+    background: #00ffcc;
+    border: 2px solid #00ffff;
+    border-radius: 0;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow:
+        0 0 10px #00ffff,
+        0 0 20px #00ffff;
+    transition: 0.1s ease;
+}
+
+button:hover {
+    background: #ffffff;
+    box-shadow:
+        0 0 15px #00ffff,
+        0 0 30px #00ffff,
+        0 0 60px #00ffff;
+    transform: scale(1.05);
+}
+
+/* Botón Go Back (debajo de la caja) */
+.back-btn {
+    margin-top: 35px;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-family: inherit;
+    color: #000;
+    background: #ff00ff;
+    border: 2px solid #ff66ff;
+    border-radius: 0;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow:
+        0 0 10px #ff00ff,
+        0 0 25px #ff00ff;
+    transition: 0.1s ease;
+}
+
+.back-btn:hover {
+    background: #ffffff;
+    box-shadow:
+        0 0 15px #ff00ff,
+        0 0 40px #ff00ff,
+        0 0 80px #ff00ff;
+    transform: scale(1.05);
+}

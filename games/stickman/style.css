@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Comic Sans MS", "Arial", cursive;
+    text-align: center;
+    color: #222;
+
+    /* Fondo tipo cuaderno */
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #ffffff,
+            #ffffff 28px,
+            #d7e3ff 29px
+        );
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título estilo pizarrón */
+h2 {
+    margin-top: 60px;
+    font-size: 48px;
+    font-weight: bold;
+    color: #000;
+
+    text-shadow: 2px 2px 0px #999;
+
+    position: relative;
+}
+
+/* Detalle matemático */
+h2::after {
+    content: "  + 2x = ?";
+    font-size: 24px;
+    color: #444;
+}
+
+/* Caja estilo dibujo a mano */
+.container {
+    margin-top: 60px;
+    padding: 40px 60px;
+
+    background: #fff;
+
+    border: 3px solid #000;
+    border-radius: 12px;
+
+    box-shadow: 6px 6px 0px #000;
+
+    position: relative;
+}
+
+/* Stickman decorativo */
+.container::before {
+    content: "";
+    position: absolute;
+    left: -40px;
+    bottom: -20px;
+    width: 40px;
+    height: 80px;
+    background: none;
+    border-left: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+/* Botón estilo dibujado */
+button {
+    margin-top: 25px;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-family: inherit;
+    color: #000;
+
+    background: #fff;
+
+    border: 3px solid #000;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-weight: bold;
+
+    box-shadow: 4px 4px 0px #000;
+
+    transition: 0.1s ease;
+}
+
+button:hover {
+    transform: rotate(-2deg) scale(1.05);
+}
+
+button:active {
+    transform: translateY(3px);
+    box-shadow: 2px 2px 0px #000;
+}
+
+/* Botón de regreso */
+.back-btn {
+    margin: 40px 0 60px 0;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-family: inherit;
+    color: #000;
+
+    background: #f5f5f5;
+
+    border: 3px dashed #000;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-weight: bold;
+
+    box-shadow: 4px 4px 0px #000;
+
+    transition: 0.1s ease;
+}
+
+.back-btn:hover {
+    transform: rotate(2deg) scale(1.05);
+}

@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #aee6ff, #5ecbff);
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    text-align: center;
+    color: #003b5c;
+
+    /* 👇 Orden vertical */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título estilo Club Penguin */
+h2 {
+    margin-top: 50px;
+    font-size: 48px;
+    color: #ffffff;
+    text-shadow: 0 4px 0 #2aa7d6;
+    letter-spacing: 1px;
+}
+
+/* Caja estilo iglú/cartoon */
+.container {
+    display: inline-block;
+    margin-top: 50px;
+    padding: 35px 50px;
+    background: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 10px 0 #2aa7d6;
+}
+
+/* Botón estilo burbuja */
+button {
+    margin-top: 20px;
+    padding: 14px 30px;
+    font-size: 18px;
+    font-family: inherit;
+    color: white;
+    background: linear-gradient(to bottom, #ffcc33, #ff9900);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 6px 0 #cc7a00;
+    transition: 0.15s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0 #cc7a00;
+}
+
+/* Botón de regreso */
+.back-btn {
+    margin: 30px 0 60px 0;
+    padding: 14px 35px;
+    font-size: 18px;
+    font-family: inherit;
+    color: white;
+    background: linear-gradient(to bottom, #66ddff, #0099cc);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 6px 0 #006b8f;
+    transition: 0.15s ease;
+}
+
+.back-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0 #006b8f;
+}

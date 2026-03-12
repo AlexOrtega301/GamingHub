@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#3b6e2a, #1e3d16);
+    font-family: "Courier New", monospace;
+    text-align: center;
+    color: #ffffff;
+
+    /* 👇 Orden vertical sin tocar estilo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título estilo Minecraft */
+h2 {
+    margin-top: 40px;
+    font-size: 48px;
+    color: #55ff55;
+    text-shadow: 
+        4px 4px 0px #2d5a1f,
+        8px 8px 0px #1b3a12;
+    letter-spacing: 2px;
+}
+
+/* Caja tipo bloque */
+.container {
+    display: inline-block;
+    margin-top: 50px;
+    padding: 30px;
+    background-color: #8b5a2b;
+    border: 6px solid #5c3a1a;
+    box-shadow: 
+        inset -6px -6px 0px #5c3a1a,
+        inset 6px 6px 0px #a8743f,
+        10px 10px 0px #1b3a12;
+}
+
+/* Botón estilo pixel */
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-family: inherit;
+    color: #ffffff;
+    background-color: #3c8527;
+    border: 4px solid #2d5a1f;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #55aa33;
+}
+
+.back-btn {
+    margin: 30px 0 60px 0;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-family: "Courier New", monospace;
+    color: #ffffff;
+    background-color: #3c8527;
+    border: 4px solid #2d5a1f;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0px #1b3a12;
+    transition: 0.15s ease;
+}
+
+.back-btn:hover {
+    background-color: #55aa33;
+    transform: translateY(-2px);
+}

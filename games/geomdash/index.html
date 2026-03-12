@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../../icon.webp">
+    <link rel="stylesheet" href="style.css">
+    <title id="page-title">Geometry Dash: HTML5 Edition</title>
+</head>
+<body>
+
+<div style="margin-bottom:15px;">
+    <label for="lang" id="lang-label">Idioma:</label>
+    <select id="lang">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="jp">日本語</option>
+    </select>
+</div>
+
+<h2 id="main-title">Geometry Dash: HTML5 Edition</h2>
+
+<iframe 
+    src="https://funhtml5games.com?embed=geomdash" 
+    style="width:640px;height:360px;border:none;" 
+    frameborder="0" 
+    scrolling="no">
+</iframe>
+
+<button onclick="goBack()" class="back-btn" id="back-btn">⬅ Volver</button>
+
+<script>
+function goBack() {
+    window.location.href = "../../index.html";
+}
+
+const translations = {
+    es: {
+        langLabel: "Idioma:",
+        pageTitle: "Geometry Dash: HTML5 Edition",
+        mainTitle: "Geometry Dash: HTML5 Edition",
+        back: "⬅ Volver"
+    },
+    en: {
+        langLabel: "Language:",
+        pageTitle: "Geometry Dash: HTML5 Edition",
+        mainTitle: "Geometry Dash: HTML5 Edition",
+        back: "⬅ Back"
+    },
+    jp: {
+        langLabel: "言語:",
+        pageTitle: "Geometry Dash: HTML5版",
+        mainTitle: "Geometry Dash: HTML5版",
+        back: "⬅ 戻る"
+    }
+};
+
+document.getElementById("lang").addEventListener("change", function() {
+    const lang = this.value;
+    const t = translations[lang];
+
+    document.documentElement.lang = lang;
+    document.getElementById("lang-label").textContent = t.langLabel;
+    document.getElementById("page-title").textContent = t.pageTitle;
+    document.getElementById("main-title").textContent = t.mainTitle;
+    document.getElementById("back-btn").textContent = t.back;
+    localStorage.setItem("language", lang);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const selector = document.getElementById("lang");
+
+    const savedLang = localStorage.getItem("language") || "es";
+
+    selector.value = savedLang;
+    applyLanguage(savedLang);
+
+    selector.addEventListener("change", function() {
+        applyLanguage(this.value);
+    });
+});
+</script>
+
+</body>
+</html>
