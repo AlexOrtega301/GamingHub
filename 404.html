@@ -1,131 +1,140 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<title id="page-title">404 - Respawn fallido</title>
+    <meta charset="UTF-8">
+    <title id="page-title">404 - Respawn fallido</title>
 </head>
+
 <body style="
-margin:0;
-padding:0;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:radial-gradient(circle at center, #0f0f1a, #000);
-font-family:monospace;
-color:#00ffea;
-text-align:center;
-overflow:hidden;
+    margin:0;
+    padding:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:radial-gradient(circle at center, #0f0f1a, #000);
+    font-family:monospace;
+    color:#00ffea;
+    text-align:center;
+    overflow:hidden;
 ">
 
-<div style="position:relative;">
+    <!-- Selector de idioma arriba -->
+    <div style="
+        position:absolute;
+        top:20px;
+        left:50%;
+        transform:translateX(-50%);
+    ">
+        <label for="lang" id="lang-label">Idioma:</label>
+        <select id="lang">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+            <option value="jp">日本語</option>
+        </select>
+    </div>
 
-<h1 style="
-font-size:120px;
-margin:0;
-color:#00ffea;
-text-shadow: 
-0 0 10px #00ffea,
-0 0 20px #00ffea,
-0 0 40px #00ffea,
-0 0 80px #0088ff;
-animation: glitch 1s infinite;
-">
-404
-</h1>
+    <div style="position:relative;">
 
-<p id="error-text" style="
-font-size:22px;
-margin-top:10px;
-color:#ffffff;
-text-shadow:0 0 5px #00ffea;
-">
-Esta página no existe o el juego no está listo.
-</p>
+        <h1 style="
+            font-size:120px;
+            margin:0;
+            color:#00ffea;
+            text-shadow:
+                0 0 10px #00ffea,
+                0 0 20px #00ffea,
+                0 0 40px #00ffea,
+                0 0 80px #0088ff;
+            animation: glitch 1s infinite;
+        ">
+            404
+        </h1>
 
-<a href="/" id="back-home" style="
-display:inline-block;
-margin-top:30px;
-padding:12px 25px;
-color:#000;
-background:#00ffea;
-text-decoration:none;
-font-weight:bold;
-border-radius:6px;
-box-shadow:0 0 15px #00ffea;
-transition:0.3s;
-">
-Volver al inicio
-</a>
+        <p id="error-text" style="
+            font-size:22px;
+            margin-top:10px;
+            color:#ffffff;
+            text-shadow:0 0 5px #00ffea;
+        ">
+            Esta página no existe o el juego no está listo.
+        </p>
 
-</div>
-<style>
-@keyframes glitch {
-0% { transform: translate(0); }
-20% { transform: translate(-2px, 2px); }
-40% { transform: translate(-2px, -2px); }
-60% { transform: translate(2px, 2px); }
-80% { transform: translate(2px, -2px); }
-100% { transform: translate(0); }
-}
-a:hover {
-background:#0088ff !important;
-box-shadow:0 0 25px #0088ff !important;
-color:#fff !important;
-}
-</style>
-<div style="margin-bottom:15px;">
-    <label for="lang" id="lang-label">Idioma:</label>
-    <select id="lang">
-        <option value="es">Español</option>
-        <option value="en">English</option>
-        <option value="jp">日本語</option>
-    </select>
-</div>
+        <a href="/GamingHub" id="back-home" style="
+            display:inline-block;
+            margin-top:30px;
+            padding:12px 25px;
+            color:#000;
+            background:#00ffea;
+            text-decoration:none;
+            font-weight:bold;
+            border-radius:6px;
+            box-shadow:0 0 15px #00ffea;
+            transition:0.3s;
+        ">
+            Volver al inicio
+        </a>
 
-<script>
-const translations = {
-    es: {
-        title: "404 - Respawn fallido",
-        message: "Esta página no existe o el juego no está listo.",
-        back: "Volver al inicio"
-    },
-    en: {
-        title: "404 - Respawn failed",
-        message: "This page does not exist or the game is not ready.",
-        back: "Back to home"
-    },
-    jp: {
-        title: "404 - リスポーン失敗",
-        message: "このページは存在しないか、ゲームはまだ準備中です。",
-        back: "ホームに戻る"
-    }
-};
+    </div>
 
-function applyLanguage(lang) {
-    const t = translations[lang];
-    if (!t) return;
+    <style>
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
 
-    document.documentElement.lang = lang;
-    document.getElementById("page-title").textContent = t.title;
-    document.getElementById("error-text").textContent = t.message;
-    document.getElementById("back-home").textContent = t.back;
+        a:hover {
+            background:#0088ff !important;
+            box-shadow:0 0 25px #0088ff !important;
+            color:#fff !important;
+        }
+    </style>
 
-}
+    <script>
+        const translations = {
+            es: {
+                title: "404 - Respawn fallido",
+                message: "Esta página no existe o el juego no está listo.",
+                back: "Volver al inicio"
+            },
+            en: {
+                title: "404 - Respawn failed",
+                message: "This page does not exist or the game is not ready.",
+                back: "Back to home"
+            },
+            jp: {
+                title: "404 - リスポーン失敗",
+                message: "このページは存在しないか、ゲームはまだ準備中です。",
+                back: "ホームに戻る"
+            }
+        };
 
-document.addEventListener("DOMContentLoaded", () => {
-    const selector = document.getElementById("lang");
+        function applyLanguage(lang) {
+            const t = translations[lang];
+            if (!t) return;
 
-    const savedLang = localStorage.getItem("language") || "es";
+            document.documentElement.lang = lang;
+            document.getElementById("page-title").textContent = t.title;
+            document.getElementById("error-text").textContent = t.message;
+            document.getElementById("back-home").textContent = t.back;
+        }
 
-    selector.value = savedLang;
-    applyLanguage(savedLang);
+        document.addEventListener("DOMContentLoaded", () => {
+            const selector = document.getElementById("lang");
+            const savedLang = localStorage.getItem("language") || "es";
 
-    selector.addEventListener("change", function() {
-        applyLanguage(this.value);
-    });
-});
-</script>
+            selector.value = savedLang;
+            applyLanguage(savedLang);
+
+            selector.addEventListener("change", function () {
+                applyLanguage(this.value);
+            });
+        });
+    </script>
 
 </body>
 </html>
