@@ -113,28 +113,37 @@
             }
         };
 
-        function applyLanguage(lang) {
-            const t = translations[lang];
-            if (!t) return;
+function applyLanguage(lang) {
+    const t = translations[lang];
+    if (!t) return;
 
-            document.documentElement.lang = lang;
-            document.getElementById("page-title").textContent = t.title;
-            document.getElementById("error-text").textContent = t.message;
-            document.getElementById("back-home").textContent = t.back;
+    document.documentElement.lang = lang;
+
+    for (const key in t) {
+        const el = document.getElementById(key);
+        if (el) {
+            el.textContent = t[key];
         }
+    }
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const selector = document.getElementById("lang");
-            const savedLang = localStorage.getItem("language") || "es";
+    localStorage.setItem("language", lang);
+}
 
-            selector.value = savedLang;
-            applyLanguage(savedLang);
+document.addEventListener("DOMContentLoaded", () => {
+    const selector = document.getElementById("lang");
+    const savedLang = localStorage.getItem("language") || "es";
 
-            selector.addEventListener("change", function () {
-                applyLanguage(this.value);
-            });
+    if (selector) {
+        selector.value = savedLang;
+
+        selector.addEventListener("change", function() {
+            applyLanguage(this.value);
         });
-    </script>
+    }
+
+    applyLanguage(savedLang);
+});
+</script>
 
 </body>
 </html>
