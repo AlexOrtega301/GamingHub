@@ -259,16 +259,9 @@ function applyLanguage(lang) {
 
     document.documentElement.lang = lang;
 
-    if (t.mainTitle)
-        document.getElementById("main-title").textContent = t.mainTitle;
-
-    document.getElementById("lang-label").textContent = t.langLabel;
-
     for (const key in t) {
-        const el = document.getElementById(
-            key.replace(/[A-Z]/g, m => "-" + m.toLowerCase())
-        );
-        if (el && t[key]) {
+        const el = document.getElementById(key);
+        if (el) {
             el.textContent = t[key];
         }
     }
@@ -278,15 +271,17 @@ function applyLanguage(lang) {
 
 document.addEventListener("DOMContentLoaded", () => {
     const selector = document.getElementById("lang");
-
     const savedLang = localStorage.getItem("language") || "es";
 
-    selector.value = savedLang;
-    applyLanguage(savedLang);
+    if (selector) {
+        selector.value = savedLang;
 
-    selector.addEventListener("change", function() {
-        applyLanguage(this.value);
-    });
+        selector.addEventListener("change", function() {
+            applyLanguage(this.value);
+        });
+    }
+
+    applyLanguage(savedLang);
 });
 </script>
 
