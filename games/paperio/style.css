@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #1e1e1e; /* Fondo oscuro estilo tablero */
+    font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+    text-align: center;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título estilo Paper.io */
+h2 {
+    margin-top: 60px;
+    font-size: 42px;
+    color: #00ffff; /* Azul neón tipo juego */
+    font-weight: 700;
+    text-shadow: 2px 2px #ff00ff; /* Sutil resplandor */
+}
+
+/* Caja estilo tablero de territorio */
+.container {
+    margin-top: 50px;
+    padding: 40px 55px;
+    background: #2b2b2b; /* Gris oscuro tipo panel de juego */
+    border-radius: 16px;
+    border: 2px solid #00ffff; /* borde neón azul */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Botones estilo bloque de territorio */
+button {
+    margin-top: 20px;
+    padding: 14px 30px;
+    font-size: 16px;
+    font-family: inherit;
+    color: #fff;
+    background: #ff6600; /* color naranja vivo tipo jugador */
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+button:hover {
+    background: #ff9933;
+    transform: scale(1.05);
+}
+
+/* Botón secundario estilo “territorio rival” */
+.back-btn {
+    margin: 30px 0 60px 0;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-family: inherit;
+    color: #fff;
+    background: #00ff66; /* verde neón estilo jugador rival */
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.back-btn:hover {
+    background: #33ff99;
+    transform: scale(1.05);
+}
+
+/* Card estilo zona de control */
+.card {
+    background: #3c3c3c; /* gris medio */
+    border-radius: 12px;
+    border: 2px solid #00ffff;
+    padding: 20px;
+    width: 260px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.5);
+}

@@ -1,73 +1,73 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #87ceeb 0%, #a0e7ff 100%); /* Cielo azul estilo Angry Birds */
-    font-family: "Comic Sans MS", "Segoe UI", Arial, sans-serif;
+    background: #fafafa; /* Fondo limpio tipo Google Snake */
+    font-family: "Roboto", "Segoe UI", Arial, sans-serif;
     text-align: center;
-    color: #2b2b2b;
+    color: #222;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Título estilo Angry Birds */
+/* Título estilo Google Snake */
 h2 {
     margin-top: 60px;
-    font-size: 48px;
-    color: #ff3333; /* Rojo vibrante de los pajaritos */
+    font-size: 42px;
+    color: #4caf50; /* Verde de la serpiente */
     font-weight: 700;
-    text-shadow: 2px 2px #ffd700; /* Sombras doradas al estilo mexicano festivo */
+    text-shadow: 1px 1px #a5d6a7; /* sombra sutil tipo bloque */
 }
 
-/* Caja estilo panel de juego */
+/* Caja estilo tablero */
 .container {
     margin-top: 50px;
     padding: 40px 55px;
-    background: #fff8dc; /* Amarillo pálido tipo arena o madera */
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    border: 3px solid #ff6600; /* borde naranja festivo */
+    background: #ffffff; /* Blanco limpio */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e0e0e0;
 }
 
-/* Botón estilo bloque de Angry Birds */
+/* Botón estilo retro juego Snake */
 button {
     margin-top: 20px;
-    padding: 16px 32px;
-    font-size: 18px;
+    padding: 12px 28px;
+    font-size: 16px;
     font-family: inherit;
     color: white;
-    background: #ff4444; /* Rojo pajarito */
+    background: #4caf50; /* Verde de la serpiente */
     border: none;
-    border-radius: 12px;
+    border-radius: 6px;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 600;
     transition: 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
 }
 
 button:hover {
-    background: #cc0000;
-    transform: scale(1.1) rotate(-2deg);
+    background: #43a047;
+    transform: scale(1.05);
 }
 
-/* Botón secundario estilo mexicano */
+/* Botón secundario estilo tablero */
 .back-btn {
     margin: 30px 0 60px 0;
-    padding: 16px 36px;
-    font-size: 18px;
+    padding: 12px 32px;
+    font-size: 16px;
     font-family: inherit;
     color: white;
-    background: #ffbb33; /* Amarillo festivo */
+    background: #ff5722; /* Color de fruta o power-up */
     border: none;
-    border-radius: 12px;
+    border-radius: 6px;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 600;
     transition: 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
 }
 
 .back-btn:hover {
-    background: #ffaa00;
-    transform: scale(1.1) rotate(2deg);
+    background: #e64a19;
+    transform: scale(1.05);
 }

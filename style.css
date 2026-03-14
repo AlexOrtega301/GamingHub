@@ -5,6 +5,7 @@
 /* Reset básico y tipografía */
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; padding: 0; }
+
 body {
     font-family: "Segoe UI", Arial, sans-serif;
     color: #fff;
@@ -15,6 +16,7 @@ body {
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
 }
 
+/* Título principal */
 h1 {
     margin: 40px 0 20px;
     font-size: 42px;
@@ -43,10 +45,9 @@ h1 {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    /* Color de fondo por clase (ver abajo) */
 }
 .card h2 { margin: 0 0 10px; }
-.card p {
+.card h3, .card p {
     margin: 0;
     font-size: 14px;
     opacity: 0.95;
@@ -75,18 +76,19 @@ h1 {
 .penguin    { background: linear-gradient(135deg, #3b40d6, #0a99bd); }
 .geomdash   { background: linear-gradient(135deg, #8917c7, #4c06a0); }
 .blockly    { background: linear-gradient(135deg, #0f31ba, #04871f); }
-.win7simu    { background: linear-gradient(135deg, #0f31ba00, #aad1fb); }
+.win7simu   { background: linear-gradient(135deg, #0f31ba00, #aad1fb); }
 .sandboxels { background: linear-gradient(135deg, #000000, #55ff00); }
 .solitaire  { background: linear-gradient(135deg, #5100ff, #0099ff); }
-.stickman  { background: linear-gradient(135deg, #0bcaff, #37b12e); }
+.stickman   { background: linear-gradient(135deg, #0bcaff, #37b12e); }
 .angrymexvtrump { background: linear-gradient(135deg, #3f0303, #169605); }
-.parasprunki  { background: linear-gradient(135deg, #401c1c, #ff000d); }
 .googlesnake  { background: linear-gradient(135deg, #0554e6, #00c010); }
+.incredisprunki { background: linear-gradient(135deg, #ff4da6, #ffcc00);}
+.erasebox { background: linear-gradient(135deg, #ff5722, #ff8a50);}
+.paperio { background: linear-gradient(135deg, #006eff, #0484c0);}
+.smwo { background: linear-gradient(135deg, #ff0000, #ff6347); color: #fff; }
 
-/* Efectos hover */
-.card:hover {
-    transform: scale(1.04);
-}
+/* Efectos hover en tarjetas */
+.card:hover { transform: scale(1.04); }
 .card.cheeseria:hover { box-shadow: 0 15px 35px rgba(255, 200, 0, 0.6); }
 .card.minecraft:hover  { box-shadow: 0 15px 35px rgba(85, 255, 85, 0.6); }
 .card.penguin:hover    { box-shadow: 0 15px 35px rgba(6, 61, 145, 0.6); }
@@ -95,10 +97,13 @@ h1 {
 .card.win7simu:hover    { box-shadow: 0 15px 35px rgba(7, 86, 147, 0.6); }
 .card.sandboxels:hover  { box-shadow: 0 15px 35px rgba(210, 255, 11, 0.6); }
 .card.solitaire:hover   { box-shadow: 0 15px 35px rgba(3, 255, 234, 0.6); }
-.card.stickman:hover   { box-shadow: 0 15px 35px rgba(11, 255, 202, 0.6); }
-.card.angrymexvtrump:hover   { box-shadow: 0 15px 35px rgba(255, 0, 13, 0.6); }
-.card.parasprunki:hover   { box-shadow: 0 15px 35px rgba(255, 0, 13, 0.6); }
+.card.stickman:hover    { box-shadow: 0 15px 35px rgba(11, 255, 202, 0.6); }
+.card.angrymexvtrump:hover { box-shadow: 0 15px 35px rgba(255, 0, 13, 0.6); }
 .card.googlesnake:hover   { box-shadow: 0 15px 35px rgba(5, 84, 230, 0.6); }
+.card.incredisprunki:hover { box-shadow: 0 15px 35px rgba(255, 77, 166, 0.6); }
+.card.erasebox:hover    { box-shadow: 0 15px 35px rgba(255, 87, 34, 0.6); }
+.card.paperio:hover    { box-shadow: 0 15px 35px rgba(0, 110, 255, 0.6); }
+.card.smwo:hover    { box-shadow: 0 15px 35px rgba(255, 0, 0, 0.6); }
 /* footer social */
 .social-footer {
   /* ya no es fijo, se coloca al final del flujo */

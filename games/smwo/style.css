@@ -1,0 +1,147 @@
+/* Reset básico y tipografía */
+* { box-sizing: border-box; }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #7ec0ee 0%, #a2d149 70%, #f9d423 100%); /* cielo, pasto, tierra estilo Mario */
+    font-family: "Press Start 2P", "Poppins", Arial, sans-serif; /* estilo pixel retro */
+    text-align: center;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título estilo bloques Mario */
+h2 {
+    margin-top: 60px;
+    font-size: 48px;
+    color: #ffcc00; /* amarillo bloque */
+    font-weight: 900;
+    text-shadow:
+        2px 2px #d10000,
+        -2px 2px #d10000,
+        2px -2px #d10000,
+        -2px -2px #d10000; /* sombra estilo pixel-art */
+}
+
+/* Contenedor tipo mundo Mario */
+.container {
+    margin-top: 50px;
+    padding: 40px 55px;
+    background: #4b8b3b; /* verde pasto estilo plataforma */
+    border-radius: 16px;
+    border: 4px solid #ffcc00; /* borde amarillo bloque */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Botones tipo power-up Mario */
+button {
+    margin-top: 20px;
+    padding: 14px 30px;
+    font-size: 16px;
+    font-family: inherit;
+    color: #fff;
+    background: #e60012; /* rojo power-up */
+    border: 3px solid #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+button:hover {
+    background: #ff4d4d;
+    transform: scale(1.1);
+}
+
+/* Botón secundario estilo “bloque verde” */
+.back-btn {
+    margin: 30px 0 60px 0;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-family: inherit;
+    color: #fff;
+    background: #00cc44; /* verde bloque */
+    border: 3px solid #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.back-btn:hover {
+    background: #33ff66;
+    transform: scale(1.1);
+}
+
+/* Card estilo bloque Mario */
+.card {
+    background: #ffd700; /* amarillo bloque clásico */
+    border-radius: 12px;
+    border: 3px solid #d10000; /* borde rojo tipo brick */
+    padding: 20px;
+    width: 260px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-weight: bold;
+    color: #3c1e1e;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 204, 0, 0.7);
+}
+
+/* Footer estilo Mario clásico */
+.social-footer {
+    width: 100%;
+    background: #000080; /* azul oscuro tipo cielo noche Mario */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 12px 0;
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.5);
+}
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.social-btn img { width: 24px; height: 24px; }
+.social-btn:hover { transform: scale(1.1); opacity: 0.9; }
+
+/* Secret link estilo moneda */
+.secret-link {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    opacity: 0.6;
+    transition: 0.3s ease;
+}
+.secret-link img { width: 60px; }
+.secret-link:hover { opacity: 1; transform: scale(1.2); }
+
+/* Responsive */
+@media (max-width: 600px) {
+    h2 { font-size: 32px; margin-top: 30px; }
+    .container { padding: 20px; gap: 15px; }
+    .card { width: 90%; padding: 15px; }
+}
