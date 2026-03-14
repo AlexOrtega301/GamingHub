@@ -5,6 +5,8 @@
     <link rel="icon" href="../../icon.webp">
     <link rel="stylesheet" href="style.css">
     <title id="page-title">Blockly IDE</title>
+    <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
+    <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
 </head>
 <body>
 
@@ -24,7 +26,8 @@ Es necesario tener algunos conocimientos del lenguaje de programación de bloque
 
 <iframe 
     id="blockly-frame"
-    src="https://blockly-demo.appspot.com/static/demos/code/index.html?lang=es" 
+    is="x-frame-bypass"
+    src="https://cors.io/?url=https://blockly-demo.appspot.com/static/demos/code/index.html?lang=es" 
     width="1000" 
     height="700" 
     style="border:none;">
