@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../../icon.webp">
+    <link rel="stylesheet" href="style.css">
+    <title id="page-title">Angry Birds?! Wha ta Fak!</title>
+</head>
+<body>
+
+<div style="margin-bottom:15px;">
+    <label for="lang" id="lang-label">Idioma:</label>
+    <select id="lang">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="jp">日本語</option>
+    </select>
+</div>
+
+<h2 id="main-title">Angry Mexicans vs Trump</h2>
+<h3 id="description">
+Uno de los mods mas raros, pero divertidos, de Angry Birds. En este juego, los pájaros son mexicanos!
+</h3>
+
+<iframe src="https://funhtml5games.com?embed=angrymex" style="width:1000px;height:600px;border:none;" frameborder="0" scrolling="no"></iframe>
+
+<button onclick="goBack()" class="back-btn" id="back-btn">⬅ Volver</button>
+
+<script>
+function goBack() {
+    window.location.href = "../../index.html";
+}
+
+const translations = {
+    es: {
+        langLabel: "Idioma:",
+        title: "Angry Mexicans vs Trump",
+        description: "Uno de los mods mas raros, pero divertidos, de Angry Birds. En este juego, los pájaros son mexicanos!",
+        back: "⬅ Volver",
+        iframeLang: "es"
+    },
+    en: {
+        langLabel: "Language:",
+        title: "Angry Mexicans vs Trump",
+        description: "One of the weirdest but most fun mods of Angry Birds. In this game, the birds are Mexican!",
+        back: "⬅ Back",
+        iframeLang: "en"
+    },
+    jp: {
+        langLabel: "言語:",
+        title: "Angry Mexicans vs Trump",
+        description: "Angry Birdsの最も奇妙で楽しいmodの一つ。このゲームでは、鳥はメキシコ人です！",
+        back: "⬅ 戻る",
+        iframeLang: "ja"
+    }
+};
+
+document.getElementById("lang").addEventListener("change", function() {
+    const lang = this.value;
+    const t = translations[lang];
+
+    document.documentElement.lang = lang;
+    document.getElementById("lang-label").textContent = t.langLabel;
+    document.getElementById("main-title").textContent = t.title;
+    document.getElementById("description").textContent = t.description;
+    document.getElementById("back-btn").textContent = t.back;
+    document.getElementById("page-title").textContent = t.title;
+
+    document.getElementById("blockly-frame").src =
+        "https://blockly-demo.appspot.com/static/demos/code/index.html?lang=" + t.iframeLang;
+    localStorage.setItem("language", lang);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const selector = document.getElementById("lang");
+
+    const savedLang = localStorage.getItem("language") || "es";
+
+    selector.value = savedLang;
+    applyLanguage(savedLang);
+
+    selector.addEventListener("change", function() {
+        applyLanguage(this.value);
+    });
+});
+</script>
+
+</body>
+</html>

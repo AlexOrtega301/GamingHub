@@ -79,6 +79,7 @@ h1 {
 .sandboxels { background: linear-gradient(135deg, #000000, #55ff00); }
 .solitaire  { background: linear-gradient(135deg, #5100ff, #0099ff); }
 .stickman  { background: linear-gradient(135deg, #0bcaff, #37b12e); }
+.angrymexvtrump { background: linear-gradient(135deg, #3f0303, #169605); }
 .parasprunki  { background: linear-gradient(135deg, #401c1c, #ff000d); }
 
 /* Efectos hover */
@@ -94,6 +95,7 @@ h1 {
 .card.sandboxels:hover  { box-shadow: 0 15px 35px rgba(210, 255, 11, 0.6); }
 .card.solitaire:hover   { box-shadow: 0 15px 35px rgba(3, 255, 234, 0.6); }
 .card.stickman:hover   { box-shadow: 0 15px 35px rgba(11, 255, 202, 0.6); }
+.card.angrymexvtrump:hover   { box-shadow: 0 15px 35px rgba(255, 0, 13, 0.6); }
 .card.parasprunki:hover   { box-shadow: 0 15px 35px rgba(255, 0, 13, 0.6); }
 /* footer social */
 .social-footer {
