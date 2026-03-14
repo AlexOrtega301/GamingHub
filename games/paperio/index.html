@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../../icon.webp">
+    <link rel="stylesheet" href="style.css">
+    <title id="page-title"><Paper class="io"></Paper></title>
+</head>
+<body>
+
+<div style="margin-bottom:15px;">
+    <label for="lang" id="lang-label">Idioma:</label>
+    <select id="lang">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="jp">日本語</option>
+    </select>
+</div>
+
+<h2 id="main-title">Paper.io</h2>
+<h3 id="description">
+Un videojuego como el snake.io pero con cubos de papel y multijugador</h3>
+
+<iframe src='https://paper-io.com' style='width:600px;height:600px;;' frameborder='0' allowfullscreen></iframe>
+
+<button onclick="goBack()" class="back-btn" id="back-btn">⬅ Volver</button>
+
+<script>
+function goBack() {
+    window.location.href = "../../index.html";
+}
+
+const translations = {
+    es: {
+        langLabel: "Idioma:",
+        title: "Paper.io",
+        description: "Un videojuego como el snake.io pero con cubos de papel y multijugador",
+        back: "⬅ Volver",
+        iframeLang: "es"
+    },
+    en: {
+        langLabel: "Language:",
+        title: "Paper.io",
+        description: "A video game like snake.io but with paper cubes and multiplayer",
+        back: "⬅ Back",
+        iframeLang: "en"
+    },
+    jp: {
+        langLabel: "言語:",
+        title: "Paper.io",
+        description: "snake.ioのようなビデオゲームですが、紙のキューブとマルチプレイヤーがあります",
+        back: "⬅ 戻る",
+        iframeLang: "ja"
+    }
+};
+
+document.getElementById("lang").addEventListener("change", function() {
+    const lang = this.value;
+    const t = translations[lang];
+
+    document.documentElement.lang = lang;
+    document.getElementById("lang-label").textContent = t.langLabel;
+    document.getElementById("main-title").textContent = t.title;
+    document.getElementById("description").textContent = t.description;
+    document.getElementById("back-btn").textContent = t.back;
+    document.getElementById("page-title").textContent = t.title;
+
+    document.getElementById("blockly-frame").src =
+        "https://blockly-demo.appspot.com/static/demos/code/index.html?lang=" + t.iframeLang;
+    localStorage.setItem("language", lang);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const selector = document.getElementById("lang");
+
+    const savedLang = localStorage.getItem("language") || "es";
+
+    selector.value = savedLang;
+    applyLanguage(savedLang);
+
+    selector.addEventListener("change", function() {
+        applyLanguage(this.value);
+    });
+});
+</script>
+
+</body>
+</html>
