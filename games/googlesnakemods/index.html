@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="../icon.webp">
+    <link rel="icon" href="../../icon.webp">
     <link rel="stylesheet" href="style.css">
-    <title id="page-title">ParaSprunki</title>
+    <title id="page-title">Google Snake!</title>
 </head>
 <body>
 
@@ -17,18 +17,12 @@
     </select>
 </div>
 
-<h2 id="main-title">ParaSprunki</h2>
+<h2 id="main-title">Google Snake con Mods!</h2>
+<h3 id="description">
+Un minijuego de snake, en el cual puedes elegir entre varios mods, como el Pudding y muchos mas!
+</h3>
 
-<iframe 
-    id="iframe-cocrea"
-    width="336"
-    height="286"
-    src="https://cocrea.world/embed/1847901299876610049?type=card&showCreator=true&showOperating=true"
-    title="ParaSprunki - Scratch project hosted on Cocrea"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-</iframe>
+<iframe src="https://googlesnakemods.com/v/current/" style="width:1000px;height:600px;border:none;" frameborder="0" scrolling="no"></iframe>
 
 <button onclick="goBack()" class="back-btn" id="back-btn">⬅ Volver</button>
 
@@ -40,21 +34,24 @@ function goBack() {
 const translations = {
     es: {
         langLabel: "Idioma:",
-        pageTitle: "ParaSprunki",
-        mainTitle: "ParaSprunki",
-        back: "⬅ Volver"
+        title: "Google Snake con Mods!",
+        description: "Un minijuego de snake, en el cual puedes elegir entre varios mods, como el Pudding y muchos mas!",
+        back: "⬅ Volver",
+        iframeLang: "es"
     },
     en: {
         langLabel: "Language:",
-        pageTitle: "ParaSprunki",
-        mainTitle: "ParaSprunki",
-        back: "⬅ Back"
+        title: "Google Snake with Mods!",
+        description: "A mini Snake game, where you can choose from various mods, like Pudding and many more!",
+        back: "⬅ Back",
+        iframeLang: "en"
     },
     jp: {
         langLabel: "言語:",
-        pageTitle: "ParaSprunki",
-        mainTitle: "ParaSprunki",
-        back: "⬅ 戻る"
+        title: "Google Snake with Mods!",
+        description: "Google Snakeの最も奇妙で楽しいmodの一つ。このゲームでは、蛇は pudding です！",
+        back: "⬅ 戻る",
+        iframeLang: "ja"
     }
 };
 
@@ -64,9 +61,13 @@ document.getElementById("lang").addEventListener("change", function() {
 
     document.documentElement.lang = lang;
     document.getElementById("lang-label").textContent = t.langLabel;
-    document.getElementById("page-title").textContent = t.pageTitle;
-    document.getElementById("main-title").textContent = t.mainTitle;
+    document.getElementById("main-title").textContent = t.title;
+    document.getElementById("description").textContent = t.description;
     document.getElementById("back-btn").textContent = t.back;
+    document.getElementById("page-title").textContent = t.title;
+
+    document.getElementById("blockly-frame").src =
+        "https://blockly-demo.appspot.com/static/demos/code/index.html?lang=" + t.iframeLang;
     localStorage.setItem("language", lang);
 });
 

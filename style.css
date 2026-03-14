@@ -81,6 +81,7 @@ h1 {
 .stickman  { background: linear-gradient(135deg, #0bcaff, #37b12e); }
 .angrymexvtrump { background: linear-gradient(135deg, #3f0303, #169605); }
 .parasprunki  { background: linear-gradient(135deg, #401c1c, #ff000d); }
+.googlesnake  { background: linear-gradient(135deg, #0554e6, #00c010); }
 
 /* Efectos hover */
 .card:hover {
@@ -97,6 +98,7 @@ h1 {
 .card.stickman:hover   { box-shadow: 0 15px 35px rgba(11, 255, 202, 0.6); }
 .card.angrymexvtrump:hover   { box-shadow: 0 15px 35px rgba(255, 0, 13, 0.6); }
 .card.parasprunki:hover   { box-shadow: 0 15px 35px rgba(255, 0, 13, 0.6); }
+.card.googlesnake:hover   { box-shadow: 0 15px 35px rgba(5, 84, 230, 0.6); }
 /* footer social */
 .social-footer {
   /* ya no es fijo, se coloca al final del flujo */
