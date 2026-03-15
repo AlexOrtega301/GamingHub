@@ -1,1 +1,2 @@
 games/minecraft/Minecraft.html filter=lfs diff=lfs merge=lfs -text
+games/opencpi/cpi/* filter=lfs diff=lfs merge=lfs -text

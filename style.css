@@ -86,6 +86,8 @@ h1 {
 .erasebox { background: linear-gradient(135deg, #ff5722, #ff8a50);}
 .paperio { background: linear-gradient(135deg, #006eff, #0484c0);}
 .smwo { background: linear-gradient(135deg, #ff0000, #ff6347); color: #fff; }
+.opencpi { background: linear-gradient(135deg, #00c3ff, #ffff1c); }
+.win93 { background: linear-gradient(135deg, #ff00ff, #00ffff); }
 
 /* Efectos hover en tarjetas */
 .card:hover { transform: scale(1.04); }
@@ -104,6 +106,8 @@ h1 {
 .card.erasebox:hover    { box-shadow: 0 15px 35px rgba(255, 87, 34, 0.6); }
 .card.paperio:hover    { box-shadow: 0 15px 35px rgba(0, 110, 255, 0.6); }
 .card.smwo:hover    { box-shadow: 0 15px 35px rgba(255, 0, 0, 0.6); }
+.card.opencpi:hover    { box-shadow: 0 15px 35px rgba(6, 143, 29, 0.6); }
+.card.win93:hover    { box-shadow: 0 15px 35px rgba(255, 0, 255, 0.6); }
 /* footer social */
 .social-footer {
   /* ya no es fijo, se coloca al final del flujo */

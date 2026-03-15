@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../../icon.webp">
+    <link rel="stylesheet" href="style.css">
+    <title id="page-title">OpenCPI</title>
+</head>
+<body>
+
+<div style="margin-bottom:15px;">
+    <label for="lang" id="lang-label">Idioma:</label>
+    <select id="lang">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="jp">日本語</option>
+    </select>
+</div>
+
+<h2 id="main-title">Windows 93</h2>
+<h4 id="description">La mejor version de windows?</h4>
+
+<iframe src="https://windows93.net" style="width:1000px;height:600px;border:none;" frameborder="0" scrolling="no"></iframe>
+
+<button onclick="goBack()" class="back-btn" id="back-btn">⬅ Volver</button>
+
+<script>
+function goBack() {
+    window.location.href = "../../index.html";
+}
+
+const translations = {
+    es: {
+        langLabel: "Idioma:",
+        pageTitle: "Windows 93",
+        mainTitle: "Windows 93",
+        description: "La mejor version de windows?",
+        back: "⬅ Volver"
+    },
+    en: {
+        langLabel: "Language:",
+        pageTitle: "Windows 93",
+        mainTitle: "Windows 93",
+        description: "The best version of windows?",
+        back: "⬅ Back"
+    },
+    jp: {
+        langLabel: "言語:",
+        pageTitle: "Windows 93",
+        mainTitle: "Windows 93",
+        description: "最高のWindowsバージョン？",
+        back: "⬅ 戻る"
+    }
+};
+function applyLanguage(lang) {
+    const t = translations[lang];
+
+    document.documentElement.lang = lang;
+    document.getElementById("lang-label").textContent = t.langLabel;
+    document.getElementById("page-title").textContent = t.pageTitle;
+    document.getElementById("main-title").textContent = t.mainTitle;
+    document.getElementById("host-info").textContent = t.hostInfo;
+    document.getElementById("description").textContent = t.description;
+    document.getElementById("back-btn").textContent = t.back;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const selector = document.getElementById("lang");
+
+    const savedLang = localStorage.getItem("language") || "es";
+
+    selector.value = savedLang;
+    applyLanguage(savedLang);
+
+    selector.addEventListener("change", function() {
+        applyLanguage(this.value);
+        localStorage.setItem("language", this.value);
+    });
+});
+</script>
+
+</body>
+</html>
