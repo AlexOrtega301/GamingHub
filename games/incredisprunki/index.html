@@ -14,15 +14,21 @@
         <option value="es">Español</option>
         <option value="en">English</option>
         <option value="jp">日本語</option>
+        <option value="fr">Français</option>
     </select>
 </div>
 
 <h2 id="main-title">Incredibox Sprunki</h2>
 <h3 id="description">
-Un Mod del juego Incredibox, donde creas musica con personajes divertidos y coloridos, pero no todo es tan inocente.
+Un mod del juego Incredibox, donde creas música con personajes divertidos y coloridos, pero no todo es tan inocente.
 </h3>
 
-<iframe src='https://www.minijuegos.mx/embed/incredibox-sprunki' style='width:600px;height:400px;;' frameborder='0' allowfullscreen></iframe>
+<iframe 
+    src='https://www.minijuegos.mx/embed/incredibox-sprunki' 
+    style='width:600px;height:400px;' 
+    frameborder='0' 
+    allowfullscreen>
+</iframe>
 
 <button onclick="goBack()" class="back-btn" id="back-btn">⬅ Volver</button>
 
@@ -35,28 +41,31 @@ const translations = {
     es: {
         langLabel: "Idioma:",
         title: "Incredibox Sprunki",
-        description: "Un Mod del juego Incredibox, donde creas musica con personajes divertidos y coloridos, pero no todo es tan inocente.",
-        back: "⬅ Volver",
-        iframeLang: "es"
+        description: "Un mod del juego Incredibox, donde creas música con personajes divertidos y coloridos, pero no todo es tan inocente.",
+        back: "⬅ Volver"
     },
     en: {
         langLabel: "Language:",
         title: "Incredibox Sprunki",
-        description: "A mod for the Incredibox game, where you create music with fun and colorful characters, but not everything is as innocent as it seems!",
-        back: "⬅ Back",
-        iframeLang: "en"
+        description: "A mod of the Incredibox game where you create music with fun and colorful characters, but not everything is as innocent as it seems!",
+        back: "⬅ Back"
     },
     jp: {
         langLabel: "言語:",
         title: "Incredibox Sprunki",
-        description: "Incrediboxの最も奇妙で楽しいmodの一つ。このゲームでは、キャラクターは色とりどりです！",
-        back: "⬅ 戻る",
-        iframeLang: "ja"
+        description: "カラフルで楽しいキャラクターで音楽を作るIncrediboxのMODですが、すべてが無邪気とは限りません。",
+        back: "⬅ 戻る"
+    },
+    fr: {
+        langLabel: "Langue:",
+        title: "Incredibox Sprunki",
+        description: "Un mod du jeu Incredibox où vous créez de la musique avec des personnages amusants et colorés, mais tout n'est pas aussi innocent qu'il y paraît !",
+        back: "⬅ Retour"
     }
 };
 
-document.getElementById("lang").addEventListener("change", function() {
-    const lang = this.value;
+// 🔥 FUNCIÓN CENTRAL
+function applyLanguage(lang) {
     const t = translations[lang];
 
     document.documentElement.lang = lang;
@@ -66,11 +75,10 @@ document.getElementById("lang").addEventListener("change", function() {
     document.getElementById("back-btn").textContent = t.back;
     document.getElementById("page-title").textContent = t.title;
 
-    document.getElementById("blockly-frame").src =
-        "https://blockly-demo.appspot.com/static/demos/code/index.html?lang=" + t.iframeLang;
     localStorage.setItem("language", lang);
-});
+}
 
+// 🚀 INIT
 document.addEventListener("DOMContentLoaded", () => {
     const selector = document.getElementById("lang");
 

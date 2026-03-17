@@ -14,11 +14,14 @@
         <option value="es">Español</option>
         <option value="en">English</option>
         <option value="jp">日本語</option>
+        <option value="fr">Français</option>
     </select>
 </div>
 
 <h2 id="main-title">OpenCPI</h2>
-<h4 id="description"> Llamando a todos los cazadores de tesoros, buscadores de estilo, pingüinos fiesteros, amantes de la comida, mariposas sociales, estrellas de rock y exploradores. Encontrarán las aventuras de toda una vida en Club Penguin Island, remendada y actualizada a Unity 6.3.</h4>
+<h4 id="description">
+Llamando a todos los cazadores de tesoros, buscadores de estilo, pingüinos fiesteros, amantes de la comida, mariposas sociales, estrellas de rock y exploradores. Encontrarán las aventuras de toda una vida en Club Penguin Island, remendada y actualizada a Unity 6.3.
+</h4>
 
 <iframe src="https://opencpisland.github.io/play" style="width:1000px;height:600px;border:none;" frameborder="0" scrolling="no"></iframe>
 
@@ -34,7 +37,6 @@ const translations = {
         langLabel: "Idioma:",
         pageTitle: "OpenCPI",
         mainTitle: "OpenCPI",
-        hostInfo: "Este juego esta hosteado en nuestro sitio!",
         description: "Llamando a todos los cazadores de tesoros, buscadores de estilo, pingüinos fiesteros, amantes de la comida, mariposas sociales, estrellas de rock y exploradores. Encontrarán las aventuras de toda una vida en Club Penguin Island, remendada y actualizada a Unity 6.3.",
         back: "⬅ Volver"
     },
@@ -42,20 +44,26 @@ const translations = {
         langLabel: "Language:",
         pageTitle: "OpenCPI",
         mainTitle: "OpenCPI",
-        hostInfo: "This game is hosted on our site!",
-        description: "Calling all treasure hunters, style seekers, party penguins, foodies, social butterflies, rock stars and explorers. You will find the adventures of a lifetime on Club Penguin Island, patched up and upgraded to Unity 6.3.",
+        description: "Calling all treasure hunters, style seekers, party penguins, food lovers, social butterflies, rock stars and explorers. You will find the adventure of a lifetime on Club Penguin Island, patched and upgraded to Unity 6.3.",
         back: "⬅ Back"
     },
     jp: {
         langLabel: "言語:",
         pageTitle: "OpenCPI",
         mainTitle: "OpenCPI",
-        hostInfo: "このゲームは当サイトでホストされています！",
-        description: "すべての宝探し、スタイルシーカー、パーティーペンギン、フーディー、社交的な蝶、ロックスター、探検家を呼び出します。あなたは、Unity 6.3にパッチが当てられ、アップグレードされたClub Penguin Islandで一生の冒険を見つけるでしょう。",
+        description: "宝探し、スタイル探求者、パーティーペンギン、グルメ、社交家、ロックスター、探検家の皆さんへ。Unity 6.3に更新されたClub Penguin Islandで、一生に一度の冒険が待っています。",
         back: "⬅ 戻る"
+    },
+    fr: {
+        langLabel: "Langue:",
+        pageTitle: "OpenCPI",
+        mainTitle: "OpenCPI",
+        description: "Avis à tous les chasseurs de trésors, amateurs de style, pingouins fêtards, gourmands, papillons sociaux, rock stars et explorateurs. Vous trouverez l'aventure d'une vie sur Club Penguin Island, corrigé et mis à jour vers Unity 6.3.",
+        back: "⬅ Retour"
     }
 };
 
+// 🔥 FUNCIÓN CENTRAL
 function applyLanguage(lang) {
     const t = translations[lang];
 
@@ -63,11 +71,13 @@ function applyLanguage(lang) {
     document.getElementById("lang-label").textContent = t.langLabel;
     document.getElementById("page-title").textContent = t.pageTitle;
     document.getElementById("main-title").textContent = t.mainTitle;
-    document.getElementById("host-info").textContent = t.hostInfo;
     document.getElementById("description").textContent = t.description;
     document.getElementById("back-btn").textContent = t.back;
+
+    localStorage.setItem("language", lang);
 }
 
+// 🚀 INIT
 document.addEventListener("DOMContentLoaded", () => {
     const selector = document.getElementById("lang");
 
@@ -78,11 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     selector.addEventListener("change", function() {
         applyLanguage(this.value);
-        localStorage.setItem("language", this.value);
     });
 });
 </script>
-
 
 </body>
 </html>

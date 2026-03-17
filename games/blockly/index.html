@@ -14,6 +14,7 @@
         <option value="es">Español</option>
         <option value="en">English</option>
         <option value="jp">日本語</option>
+        <option value="fr">Français</option>
     </select>
 </div>
 
@@ -58,11 +59,18 @@ const translations = {
         description: "最大限に楽しむには、Blocklyブロックプログラミングの基礎知識が必要です！",
         back: "⬅ 戻る",
         iframeLang: "ja"
+    },
+    fr: {
+        langLabel: "Langue:",
+        title: "Blockly IDE",
+        description: "Vous avez besoin de quelques connaissances en programmation par blocs (Blockly) pour en profiter pleinement !",
+        back: "⬅ Retour",
+        iframeLang: "fr"
     }
 };
 
-document.getElementById("lang").addEventListener("change", function() {
-    const lang = this.value;
+// 🔥 FUNCIÓN CENTRAL
+function applyLanguage(lang) {
     const t = translations[lang];
 
     document.documentElement.lang = lang;
@@ -72,11 +80,15 @@ document.getElementById("lang").addEventListener("change", function() {
     document.getElementById("back-btn").textContent = t.back;
     document.getElementById("page-title").textContent = t.title;
 
+    // 🔥 IMPORTANTE: actualizar iframe
     document.getElementById("blockly-frame").src =
         "https://blockly-demo.appspot.com/static/demos/code/index.html?lang=" + t.iframeLang;
-    localStorage.setItem("language", lang);
-});
 
+    // 💾 guardar idioma
+    localStorage.setItem("language", lang);
+}
+
+// 🚀 INIT
 document.addEventListener("DOMContentLoaded", () => {
     const selector = document.getElementById("lang");
 

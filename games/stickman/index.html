@@ -14,6 +14,7 @@
         <option value="es">Español</option>
         <option value="en">English</option>
         <option value="jp">日本語</option>
+        <option value="fr">Français</option>
     </select>
 </div>
 
@@ -54,21 +55,30 @@ const translations = {
         pageTitle: "Count Masters: Stickman Games",
         mainTitle: "Count Masters: Stickman Games",
         back: "⬅ 戻る"
+    },
+    fr: {
+        langLabel: "Langue:",
+        pageTitle: "Count Masters: Stickman Games",
+        mainTitle: "Count Masters: Stickman Games",
+        back: "⬅ Retour"
     }
 };
 
-document.getElementById("lang").addEventListener("change", function() {
-    const lang = this.value;
+// 🔥 FUNCIÓN CENTRAL
+function applyLanguage(lang) {
     const t = translations[lang];
+    if (!t) return;
 
     document.documentElement.lang = lang;
     document.getElementById("lang-label").textContent = t.langLabel;
     document.getElementById("page-title").textContent = t.pageTitle;
     document.getElementById("main-title").textContent = t.mainTitle;
     document.getElementById("back-btn").textContent = t.back;
-    localStorage.setItem("language", lang);
-});
 
+    localStorage.setItem("language", lang);
+}
+
+// 🚀 INIT
 document.addEventListener("DOMContentLoaded", () => {
     const selector = document.getElementById("lang");
 

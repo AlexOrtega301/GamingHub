@@ -21,128 +21,134 @@
     overflow:hidden;
 ">
 
-    <!-- Selector de idioma arriba -->
-    <div style="
-        position:absolute;
-        top:20px;
-        left:50%;
-        transform:translateX(-50%);
+<div style="
+    position:absolute;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+">
+    <label for="lang" id="lang-label">Idioma:</label>
+    <select id="lang">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="jp">日本語</option>
+        <option value="fr">Français</option>
+    </select>
+</div>
+
+<div style="position:relative;">
+
+    <h1 style="
+        font-size:120px;
+        margin:0;
+        color:#00ffea;
+        text-shadow:
+            0 0 10px #00ffea,
+            0 0 20px #00ffea,
+            0 0 40px #00ffea,
+            0 0 80px #0088ff;
+        animation: glitch 1s infinite;
     ">
-        <label for="lang" id="lang-label">Idioma:</label>
-        <select id="lang">
-            <option value="es">Español</option>
-            <option value="en">English</option>
-            <option value="jp">日本語</option>
-        </select>
-    </div>
+        404
+    </h1>
 
-    <div style="position:relative;">
+    <p id="error-text" style="
+        font-size:22px;
+        margin-top:10px;
+        color:#ffffff;
+        text-shadow:0 0 5px #00ffea;
+    ">
+        Esta página no existe o el juego no está listo.
+    </p>
 
-        <h1 style="
-            font-size:120px;
-            margin:0;
-            color:#00ffea;
-            text-shadow:
-                0 0 10px #00ffea,
-                0 0 20px #00ffea,
-                0 0 40px #00ffea,
-                0 0 80px #0088ff;
-            animation: glitch 1s infinite;
-        ">
-            404
-        </h1>
+    <a href="/GamingHub" id="back-home" style="
+        display:inline-block;
+        margin-top:30px;
+        padding:12px 25px;
+        color:#000;
+        background:#00ffea;
+        text-decoration:none;
+        font-weight:bold;
+        border-radius:6px;
+        box-shadow:0 0 15px #00ffea;
+        transition:0.3s;
+    ">
+        Volver al inicio
+    </a>
 
-        <p id="error-text" style="
-            font-size:22px;
-            margin-top:10px;
-            color:#ffffff;
-            text-shadow:0 0 5px #00ffea;
-        ">
-            Esta página no existe o el juego no está listo.
-        </p>
+</div>
 
-        <a href="/GamingHub" id="back-home" style="
-            display:inline-block;
-            margin-top:30px;
-            padding:12px 25px;
-            color:#000;
-            background:#00ffea;
-            text-decoration:none;
-            font-weight:bold;
-            border-radius:6px;
-            box-shadow:0 0 15px #00ffea;
-            transition:0.3s;
-        ">
-            Volver al inicio
-        </a>
+<style>
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
 
-    </div>
+a:hover {
+    background:#0088ff !important;
+    box-shadow:0 0 25px #0088ff !important;
+    color:#fff !important;
+}
+</style>
 
-    <style>
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
-        }
+<script>
+const translations = {
+    es: {
+        langLabel: "Idioma:",
+        pageTitle: "404 - Respawn fallido",
+        errorText: "Esta página no existe o el juego no está listo.",
+        backHome: "Volver al inicio"
+    },
+    en: {
+        langLabel: "Language:",
+        pageTitle: "404 - Respawn failed",
+        errorText: "This page does not exist or the game is not ready.",
+        backHome: "Back to home"
+    },
+    jp: {
+        langLabel: "言語:",
+        pageTitle: "404 - リスポーン失敗",
+        errorText: "このページは存在しないか、ゲームはまだ準備中です。",
+        backHome: "ホームに戻る"
+    },
+    fr: {
+        langLabel: "Langue:",
+        pageTitle: "404 - Réapparition échouée",
+        errorText: "Cette page n'existe pas ou le jeu n'est pas prêt.",
+        backHome: "Retour à l'accueil"
+    }
+};
 
-        a:hover {
-            background:#0088ff !important;
-            box-shadow:0 0 25px #0088ff !important;
-            color:#fff !important;
-        }
-    </style>
-
-    <script>
-        const translations = {
-            es: {
-                title: "404 - Respawn fallido",
-                message: "Esta página no existe o el juego no está listo.",
-                back: "Volver al inicio"
-            },
-            en: {
-                title: "404 - Respawn failed",
-                message: "This page does not exist or the game is not ready.",
-                back: "Back to home"
-            },
-            jp: {
-                title: "404 - リスポーン失敗",
-                message: "このページは存在しないか、ゲームはまだ準備中です。",
-                back: "ホームに戻る"
-            }
-        };
-
+// 🔥 FUNCIÓN CENTRAL
 function applyLanguage(lang) {
     const t = translations[lang];
     if (!t) return;
 
     document.documentElement.lang = lang;
 
-    for (const key in t) {
-        const el = document.getElementById(key);
-        if (el) {
-            el.textContent = t[key];
-        }
-    }
+    document.getElementById("lang-label").textContent = t.langLabel;
+    document.getElementById("page-title").textContent = t.pageTitle;
+    document.getElementById("error-text").textContent = t.errorText;
+    document.getElementById("back-home").textContent = t.backHome;
 
     localStorage.setItem("language", lang);
 }
 
+// 🚀 INIT
 document.addEventListener("DOMContentLoaded", () => {
     const selector = document.getElementById("lang");
     const savedLang = localStorage.getItem("language") || "es";
 
-    if (selector) {
-        selector.value = savedLang;
-
-        selector.addEventListener("change", function() {
-            applyLanguage(this.value);
-        });
-    }
-
+    selector.value = savedLang;
     applyLanguage(savedLang);
+
+    selector.addEventListener("change", function() {
+        applyLanguage(this.value);
+    });
 });
 </script>
 

@@ -14,6 +14,7 @@
         <option value="es">Español</option>
         <option value="en">English</option>
         <option value="jp">日本語</option>
+        <option value="fr">Français</option>
     </select>
 </div>
 
@@ -36,27 +37,30 @@ const translations = {
         langLabel: "Idioma:",
         title: "Angry Mexicans vs Trump",
         description: "Uno de los mods mas raros, pero divertidos, de Angry Birds. En este juego, los pájaros son mexicanos!",
-        back: "⬅ Volver",
-        iframeLang: "es"
+        back: "⬅ Volver"
     },
     en: {
         langLabel: "Language:",
         title: "Angry Mexicans vs Trump",
         description: "One of the weirdest but most fun mods of Angry Birds. In this game, the birds are Mexican!",
-        back: "⬅ Back",
-        iframeLang: "en"
+        back: "⬅ Back"
     },
     jp: {
         langLabel: "言語:",
         title: "Angry Mexicans vs Trump",
         description: "Angry Birdsの最も奇妙で楽しいmodの一つ。このゲームでは、鳥はメキシコ人です！",
-        back: "⬅ 戻る",
-        iframeLang: "ja"
+        back: "⬅ 戻る"
+    },
+    fr: {
+        langLabel: "Langue:",
+        title: "Angry Mexicans vs Trump",
+        description: "L'un des mods les plus étranges mais amusants d'Angry Birds. Dans ce jeu, les oiseaux sont mexicains !",
+        back: "⬅ Retour"
     }
 };
 
-document.getElementById("lang").addEventListener("change", function() {
-    const lang = this.value;
+// 🔥 FUNCIÓN CENTRAL (LA CLAVE DE TODO)
+function applyLanguage(lang) {
     const t = translations[lang];
 
     document.documentElement.lang = lang;
@@ -66,11 +70,11 @@ document.getElementById("lang").addEventListener("change", function() {
     document.getElementById("back-btn").textContent = t.back;
     document.getElementById("page-title").textContent = t.title;
 
-    document.getElementById("blockly-frame").src =
-        "https://blockly-demo.appspot.com/static/demos/code/index.html?lang=" + t.iframeLang;
+    // 💾 Guardar idioma
     localStorage.setItem("language", lang);
-});
+}
 
+// 🚀 INIT GLOBAL
 document.addEventListener("DOMContentLoaded", () => {
     const selector = document.getElementById("lang");
 

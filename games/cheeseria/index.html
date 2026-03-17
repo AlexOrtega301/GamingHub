@@ -16,6 +16,7 @@
         <option value="es">Español</option>
         <option value="en">English</option>
         <option value="jp">日本語</option>
+        <option value="fr">Français</option>
     </select>
 </div>
 
@@ -67,11 +68,19 @@ const translations = {
         flashInfo: "このゲームはFlashを使用しています。Flashがインストールされていない場合はRuffleが使用されます。",
         hostInfo: "このゲームは当サイトでホストされています！",
         back: "⬅ 戻る"
+    },
+    fr: {
+        langLabel: "Langue:",
+        pageTitle: "Papa's Cheeseria (Hébergé)",
+        mainTitle: "Papa's Cheeseria",
+        flashInfo: "Ce jeu utilise Flash. Si vous ne l'avez pas, Ruffle sera utilisé.",
+        hostInfo: "Ce jeu est hébergé sur notre site !",
+        back: "⬅ Retour"
     }
 };
 
-document.getElementById("lang").addEventListener("change", function() {
-    const lang = this.value;
+// 🔥 FUNCIÓN CENTRAL
+function applyLanguage(lang) {
     const t = translations[lang];
 
     document.documentElement.lang = lang;
@@ -82,9 +91,11 @@ document.getElementById("lang").addEventListener("change", function() {
     document.getElementById("flash-info").textContent = t.flashInfo;
     document.getElementById("host-info").textContent = t.hostInfo;
     document.getElementById("back-btn").textContent = t.back;
-    localStorage.setItem("language", lang);
-});
 
+    localStorage.setItem("language", lang);
+}
+
+// 🚀 INIT
 document.addEventListener("DOMContentLoaded", () => {
     const selector = document.getElementById("lang");
 

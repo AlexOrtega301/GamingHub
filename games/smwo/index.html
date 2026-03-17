@@ -14,12 +14,14 @@
         <option value="es">Español</option>
         <option value="en">English</option>
         <option value="jp">日本語</option>
+        <option value="fr">Français</option>
     </select>
 </div>
 
 <h2 id="main-title">Super Mario World Online</h2>
 <h3 id="description">
-El mitico juego de la SNES Totalmente gratis en tu navegador.</h3>
+El mítico juego de la SNES totalmente gratis en tu navegador.
+</h3>
 
 <iframe src='https://www.minijuegos.mx/embed/super-mario-world-online' style='width: 800px;height: 600px;' frameborder='0' allowfullscreen></iframe>
 
@@ -34,29 +36,33 @@ const translations = {
     es: {
         langLabel: "Idioma:",
         title: "Super Mario World Online",
-        description: "El mitico juego de la SNES Totalmente gratis en tu navegador.",
-        back: "⬅ Volver",
-        iframeLang: "es"
+        description: "El mítico juego de la SNES totalmente gratis en tu navegador.",
+        back: "⬅ Volver"
     },
     en: {
         langLabel: "Language:",
         title: "Super Mario World Online",
         description: "The legendary SNES game completely free in your browser.",
-        back: "⬅ Back",
-        iframeLang: "en"
+        back: "⬅ Back"
     },
     jp: {
         langLabel: "言語:",
         title: "スーパーマリオワールドオンライン",
         description: "伝説のSNESゲームがブラウザで完全無料で遊べます。",
-        back: "⬅ 戻る",
-        iframeLang: "ja"
+        back: "⬅ 戻る"
+    },
+    fr: {
+        langLabel: "Langue:",
+        title: "Super Mario World Online",
+        description: "Le jeu légendaire de la SNES entièrement gratuit dans votre navigateur.",
+        back: "⬅ Retour"
     }
 };
 
-document.getElementById("lang").addEventListener("change", function() {
-    const lang = this.value;
+// 🔥 FUNCIÓN CENTRAL
+function applyLanguage(lang) {
     const t = translations[lang];
+    if (!t) return;
 
     document.documentElement.lang = lang;
     document.getElementById("lang-label").textContent = t.langLabel;
@@ -65,11 +71,10 @@ document.getElementById("lang").addEventListener("change", function() {
     document.getElementById("back-btn").textContent = t.back;
     document.getElementById("page-title").textContent = t.title;
 
-    document.getElementById("blockly-frame").src =
-        "https://blockly-demo.appspot.com/static/demos/code/index.html?lang=" + t.iframeLang;
     localStorage.setItem("language", lang);
-});
+}
 
+// 🚀 INIT
 document.addEventListener("DOMContentLoaded", () => {
     const selector = document.getElementById("lang");
 

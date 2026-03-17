@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="icon" href="../../icon.webp">
     <link rel="stylesheet" href="style.css">
-    <title id="page-title"><Paper class="io"></Paper></title>
+    <title id="page-title">Paper.io</title>
 </head>
 <body>
 
@@ -14,14 +14,16 @@
         <option value="es">Español</option>
         <option value="en">English</option>
         <option value="jp">日本語</option>
+        <option value="fr">Français</option>
     </select>
 </div>
 
 <h2 id="main-title">Paper.io</h2>
 <h3 id="description">
-Un videojuego como el snake.io pero con cubos de papel y multijugador</h3>
+Un videojuego como snake.io pero con cubos de papel y multijugador
+</h3>
 
-<iframe src='https://paper-io.com' style='width:600px;height:600px;;' frameborder='0' allowfullscreen></iframe>
+<iframe src='https://paper-io.com' style='width:600px;height:600px;' frameborder='0' allowfullscreen></iframe>
 
 <button onclick="goBack()" class="back-btn" id="back-btn">⬅ Volver</button>
 
@@ -34,28 +36,31 @@ const translations = {
     es: {
         langLabel: "Idioma:",
         title: "Paper.io",
-        description: "Un videojuego como el snake.io pero con cubos de papel y multijugador",
-        back: "⬅ Volver",
-        iframeLang: "es"
+        description: "Un videojuego como snake.io pero con cubos de papel y multijugador",
+        back: "⬅ Volver"
     },
     en: {
         langLabel: "Language:",
         title: "Paper.io",
-        description: "A video game like snake.io but with paper cubes and multiplayer",
-        back: "⬅ Back",
-        iframeLang: "en"
+        description: "A game like snake.io but with paper cubes and multiplayer",
+        back: "⬅ Back"
     },
     jp: {
         langLabel: "言語:",
         title: "Paper.io",
-        description: "snake.ioのようなビデオゲームですが、紙のキューブとマルチプレイヤーがあります",
-        back: "⬅ 戻る",
-        iframeLang: "ja"
+        description: "snake.ioのようなゲームですが、紙のキューブとマルチプレイヤーがあります",
+        back: "⬅ 戻る"
+    },
+    fr: {
+        langLabel: "Langue:",
+        title: "Paper.io",
+        description: "Un jeu similaire à snake.io mais avec des cubes en papier et du multijoueur",
+        back: "⬅ Retour"
     }
 };
 
-document.getElementById("lang").addEventListener("change", function() {
-    const lang = this.value;
+// 🔥 FUNCIÓN CENTRAL
+function applyLanguage(lang) {
     const t = translations[lang];
 
     document.documentElement.lang = lang;
@@ -65,11 +70,10 @@ document.getElementById("lang").addEventListener("change", function() {
     document.getElementById("back-btn").textContent = t.back;
     document.getElementById("page-title").textContent = t.title;
 
-    document.getElementById("blockly-frame").src =
-        "https://blockly-demo.appspot.com/static/demos/code/index.html?lang=" + t.iframeLang;
     localStorage.setItem("language", lang);
-});
+}
 
+// 🚀 INIT
 document.addEventListener("DOMContentLoaded", () => {
     const selector = document.getElementById("lang");
 

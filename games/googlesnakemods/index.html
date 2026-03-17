@@ -14,15 +14,21 @@
         <option value="es">Español</option>
         <option value="en">English</option>
         <option value="jp">日本語</option>
+        <option value="fr">Français</option>
     </select>
 </div>
 
 <h2 id="main-title">Google Snake con Mods!</h2>
 <h3 id="description">
-Un minijuego de snake, en el cual puedes elegir entre varios mods, como el Pudding y muchos mas!
+Un minijuego de snake, en el cual puedes elegir entre varios mods, como el Pudding y muchos más!
 </h3>
 
-<iframe src="https://googlesnakemods.com/v/current/" style="width:1000px;height:600px;border:none;" frameborder="0" scrolling="no"></iframe>
+<iframe 
+    src="https://googlesnakemods.com/v/current/" 
+    style="width:1000px;height:600px;border:none;" 
+    frameborder="0" 
+    scrolling="no">
+</iframe>
 
 <button onclick="goBack()" class="back-btn" id="back-btn">⬅ Volver</button>
 
@@ -35,28 +41,31 @@ const translations = {
     es: {
         langLabel: "Idioma:",
         title: "Google Snake con Mods!",
-        description: "Un minijuego de snake, en el cual puedes elegir entre varios mods, como el Pudding y muchos mas!",
-        back: "⬅ Volver",
-        iframeLang: "es"
+        description: "Un minijuego de snake, en el cual puedes elegir entre varios mods, como el Pudding y muchos más!",
+        back: "⬅ Volver"
     },
     en: {
         langLabel: "Language:",
         title: "Google Snake with Mods!",
-        description: "A mini Snake game, where you can choose from various mods, like Pudding and many more!",
-        back: "⬅ Back",
-        iframeLang: "en"
+        description: "A mini Snake game where you can choose from various mods, like Pudding and many more!",
+        back: "⬅ Back"
     },
     jp: {
         langLabel: "言語:",
-        title: "Google Snake with Mods!",
-        description: "Google Snakeの最も奇妙で楽しいmodの一つ。このゲームでは、蛇は pudding です！",
-        back: "⬅ 戻る",
-        iframeLang: "ja"
+        title: "Google Snake (モッド付き)",
+        description: "さまざまなモッド（プディングなど）を選べるスネークのミニゲームです！",
+        back: "⬅ 戻る"
+    },
+    fr: {
+        langLabel: "Langue:",
+        title: "Google Snake avec Mods !",
+        description: "Un mini-jeu Snake où vous pouvez choisir parmi plusieurs mods, comme Pudding et bien d'autres !",
+        back: "⬅ Retour"
     }
 };
 
-document.getElementById("lang").addEventListener("change", function() {
-    const lang = this.value;
+// 🔥 FUNCIÓN CENTRAL
+function applyLanguage(lang) {
     const t = translations[lang];
 
     document.documentElement.lang = lang;
@@ -66,11 +75,10 @@ document.getElementById("lang").addEventListener("change", function() {
     document.getElementById("back-btn").textContent = t.back;
     document.getElementById("page-title").textContent = t.title;
 
-    document.getElementById("blockly-frame").src =
-        "https://blockly-demo.appspot.com/static/demos/code/index.html?lang=" + t.iframeLang;
     localStorage.setItem("language", lang);
-});
+}
 
+// 🚀 INIT
 document.addEventListener("DOMContentLoaded", () => {
     const selector = document.getElementById("lang");
 
